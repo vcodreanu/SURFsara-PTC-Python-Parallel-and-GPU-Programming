@@ -2,12 +2,13 @@
 #SBATCH -t 2:00:00
 #SBATCH -N 1
 #SBATCH -p gpu
+#SBATCH --reservation=pcspython_gpu
 
 # Please modify the port number if this one is occupied
-PORT=5010
+#PORT=5010
 
-#PORT=$(whoami | cut -c6-8)
-#PORT="5$PORT"
+PORT=$(whoami | cut -c4-6)
+PORT="5$PORT"
 
 module load python/2.7.11
 module load cuda/7.5.18
