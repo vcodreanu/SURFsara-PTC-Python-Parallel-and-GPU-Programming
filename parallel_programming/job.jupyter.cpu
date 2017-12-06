@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH -t 2:00:00
+#SBATCH -N 1
+#SBATCH -p normal
+#SBATCH --reservation=pcspython_cpu
+
+# Please modify the port number if this one is occupied
+#PORT=5010
+
+PORT=$(whoami | cut -c4-6)
+PORT="5$PORT"
+module unload mpi
+module load python/3.5.2-intel-u2
+
+ssh -o StrictHostKeyChecking=no -f -N -p 22 -R $PORT:localhost:$PORT int3 
+jupyter notebook --no-browser --port $PORT
+
