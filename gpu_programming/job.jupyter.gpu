@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -t 2:00:00
+#SBATCH -N 1
+#SBATCH -p gpu
+
+# Please modify the port number if this one is occupied
+PORT=5010
+
+#PORT=$(whoami | cut -c6-8)
+#PORT="5$PORT"
+
+module load python/2.7.11
+module load cuda/7.5.18
+module load cudnn/7.5-v5
+module load gcc/4.9.2
+
+export NUMBAPRO_NVVM=/hpc/sw/cuda/8.0.44/nvvm/lib64/libnvvm.so
+export NUMBAPRO_LIBDEVICE=/hpc/sw/cuda/8.0.44/nvvm/libdevice/
+
+ssh -o StrictHostKeyChecking=no -f -N -p 22 -R $PORT:localhost:$PORT int3 
+jupyter notebook --no-browser --port $PORT
+
