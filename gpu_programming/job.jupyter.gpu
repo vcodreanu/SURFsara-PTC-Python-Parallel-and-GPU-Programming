@@ -2,7 +2,7 @@
 #SBATCH -t 2:00:00
 #SBATCH -N 1
 #SBATCH -p gpu
-#SBATCH --reservation=pcspython_gpu
+#SBATCH --reservation=patc_gpu
 
 # Please modify the port number if this one is occupied
 #PORT=5010
