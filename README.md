@@ -42,7 +42,7 @@ When the hands-on session starts, submit the following job to Cartesius:
 
 Open a new terminal and do the following:
 
-    ssh -L5XXX:localhost:5XXX accntXXX@vis.cartesius.surfsara.nl
+    ssh -L5XXX:localhost:5XXX ptcXXX@vis.cartesius.surfsara.nl
 
 Note that, you need to replace XXX with the three digits of your login account.
    
