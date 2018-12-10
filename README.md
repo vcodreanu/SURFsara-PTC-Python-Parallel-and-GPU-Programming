@@ -2,7 +2,7 @@
 
 This repository holds the training material used in the PRACE PTC training at SURFsara entitled: Python Parallel and GPU Programming.
 
-For the parallel and GPU sessions, we will use the [Cartesius machines](https://userinfo.surfsara.nl/systems/cartesius) that are generously made available by SURFsara for the OBELICS school. You will need to connect to them through the ssh protocol (natively installed on Linux and Mac).
+For the GPU sessions, we will use the [Cartesius machines](https://userinfo.surfsara.nl/systems/cartesius) that are generously made available by SURFsara for the PTC course. You will need to connect to them through the ssh protocol (natively installed on Linux and Mac).
 
 For Windows users, we recommend these tools to connect via ssh:
 - [Putty](http://www.putty.org/) & [Winscp](https://winscp.net)
