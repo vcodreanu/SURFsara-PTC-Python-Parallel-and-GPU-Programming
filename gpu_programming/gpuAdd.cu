@@ -33,6 +33,7 @@ main(void)
     
     	a[i] = i*i;
     	b[i] = i;
+	c[i] = 0;
     
     }
     // Copy the host input vectors A and B in host memory to the device input vectors in

@@ -12,10 +12,10 @@ def setDevice(ndev = None):
       ''' To use CUDA or OpenCL you need a context and a device to stablish the context o                   communication '''
       import pycuda.autoinit
       nDevices = cuda.Device.count()
-      print "Available Devices:"
+      print ("Available Devices:")
       for i in range(nDevices):
             dev = cuda.Device( i )
-            print "  Device {0}: {1}".format( i, dev.name() )
+            print ("  Device {0}: {1}".format( i, dev.name() ))
       devNumber = 0
       if nDevices > 1:
             if ndev == None:
@@ -25,7 +25,7 @@ def setDevice(ndev = None):
       dev = cuda.Device( devNumber)
       cuda.Context.pop()  #Disable previus CUDA context
       ctxCUDA = dev.make_context()
-      print "Using device {0}: {1}".format( devNumber, dev.name() )
+      print ("Using device {0}: {1}".format( devNumber, dev.name() ))
       return ctxCUDA, dev
 
 
@@ -38,13 +38,13 @@ def getKernelInfo(kernel,nthreads, rt=True):
     mbpt=kernel.max_threads_per_block
     #threads =  #self.block_size_x* self.block_size_y* self.block_size_z
     occupy = occupancy(devdata, nthreads, shared_mem=shared, registers=regs)
-    print "==Kernel Memory=="
+    print ("==Kernel Memory==")
     print("""Local:        {0}
 Shared:       {1}
 Registers:    {2}
 Const:        {3}
 Max Threads/B:{4}""".format(local,shared,regs,const,mbpt))
-    print "==Occupancy=="
+    print ("==Occupancy==")
     print("""Blocks executed by MP: {0}
 Limited by:            {1}
 Warps executed by MP:  {2}
@@ -61,8 +61,8 @@ def gpuMesureTime(myKernel, ntimes=1000):
     end.record()
     end.synchronize()
     timeGPU = start.time_till(end)*1e-3
-    print "Call the function {0} times takes in GPU {1} seconds.\n".format(ntimes,timeGPU)
-    print "{0} seconds per call".format(timeGPU/ntimes)
+    print ("Call the function {0} times takes in GPU {1} seconds.\n".format(ntimes,timeGPU))
+    print ("{0} seconds per call".format(timeGPU/ntimes))
     return timeGPU
 
 def precisionCU(p = 'float'):
@@ -117,7 +117,7 @@ def getFreeMemory(show=True):
     Mb = 1024.*1024.
     Mbytes = float(cuda.mem_get_info()[0])/Mb
     if show:
-      print "Free Global Memory: %f Mbytes" %Mbytes
+      print ("Free Global Memory: %f Mbytes" %Mbytes)
 
     return cuda.mem_get_info()[0]/Mb
 
